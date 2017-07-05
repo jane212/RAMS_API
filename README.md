@@ -8,7 +8,7 @@ Go to the map server page, https://gis.iowadot.gov/ramsa/rest/services/lrs/MapSe
 
 Make sure you try out these functions first to get familiar with how the map server works.
 
-### a. using coordinates to get measure and routeId
+### a. using coordinates to get "measure" and "routeId"
 
 https://gis.iowadot.gov/ramsa/rest/services/lrs/MapServer/exts/LRSServer/networkLayers/0/geometryToMeasure
 
@@ -30,7 +30,7 @@ In the results, the "measure" field indicates how long your location is away fro
 
 Getting measure and routeId is fundamental for using this system to get any other attributes you want. ALWAYS check your results on the map to see if your location is on the correct route and direction.
 
-### b. using measure and routeId to get any attributes you want
+### b. using "measure" and "routeId" to get any attributes you want
 
 https://gis.iowadot.gov/ramsa/rest/services/lrs/MapServer/exts/LRSServer/networkLayers/0/queryAttributeSetd
 
@@ -105,7 +105,7 @@ Also, the direction here is the direction from routeID, NOT from the physical wo
 
 There are several errors in the RAMS itself. I've tried many scenarios and handled all the exceptions I met. But if you still find your results are not reasonable, please consult Skylar.
 
-### Final Comments
+## Final Comments
 
 There are many fields you need to modify regarding your own problem. They have been highlighted in the codes. Please follow the instructions in the codes as well.
 
