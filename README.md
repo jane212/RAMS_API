@@ -22,7 +22,7 @@ tolerance: 20
 
 inSR: 4326
 
-![alt text](RAMS_API/geotomeasure.png)
+![](https://github.com/jane212/RAMS_API/blob/master/geotomeasure.png)
 
 Note that x is for longitude and y is for latitude. "routeId" is optional, if you don't know the exact route and direction, leave a larger tolerance (in feet) to make sure it returns all the nearby routes.
 
