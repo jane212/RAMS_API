@@ -14,13 +14,15 @@ https://gis.iowadot.gov/ramsa/rest/services/lrs/MapServer/exts/LRSServer/network
 
 This function is using any coordinates (in Iowa) to get the measure of it on a road. You could consider it as 'Mile Marker', but it has a little difference with actual 'Mile Post' on the road: measures are always increasing along the traveling direction.
 
-Some example for those fields (must be json array):
+Some example for those fields you should fill in (must be json array):
 
 locations: [{"geometry":{"x":-93.646419, "y":42.004027}, "routeId":"S001920030E"}]
 
 tolerance: 20
 
 inSR: 4326
+
+![alt text](RAMS_API/geotomeasure.png)
 
 Note that x is for longitude and y is for latitude. "routeId" is optional, if you don't know the exact route and direction, leave a larger tolerance (in feet) to make sure it returns all the nearby routes.
 
