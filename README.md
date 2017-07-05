@@ -10,9 +10,9 @@ Make sure you try out these functions first to get familiar with how the map ser
 
 ### a. using coordinates to get "measure" and "routeId"
 
-https://gis.iowadot.gov/ramsa/rest/services/lrs/MapServer/exts/LRSServer/networkLayers/0/geometryToMeasure
-
 This function is using any coordinates (in Iowa) to get the measure of it on a road. You could consider it as 'Mile Marker', but it has a little difference with actual 'Mile Post' on the road: measures are always increasing along the traveling direction.
+
+Go to this link: https://gis.iowadot.gov/ramsa/rest/services/lrs/MapServer/exts/LRSServer/networkLayers/0/geometryToMeasure
 
 Some example for those fields you should fill in (must be json array):
 
@@ -34,21 +34,23 @@ Getting measure and routeId is fundamental for using this system to get any othe
 
 ### b. using "measure" and "routeId" to get attributes
 
-https://gis.iowadot.gov/ramsa/rest/services/lrs/MapServer/exts/LRSServer/networkLayers/0/queryAttributeSetd
-
 After getting the measure and routeId, you could use the above link to query any attributes in RAMS/GIMS. Here is an example for getting AADT.
 
-Use the above link and fill in the fields as follows:
+Use this link https://gis.iowadot.gov/ramsa/rest/services/lrs/MapServer/exts/LRSServer/networkLayers/0/queryAttributeSetd and fill in the fields as follows:
 
 locations: [{"routeId":"S001920030E", "measure": 146.62445701775567}]
 
 attributeSet: [{"layerId":102, "fields":["AADT"]}]
+
+![](https://github.com/jane212/RAMS_API/blob/master/aadt.png)
 
 In the results, the "AADT" field has the data you want. Here we used previous location info we got from function a., the AADT value for that location is 23800.
 
 Below is the list of layers RAMS has, and click on the layer you could access all the fields it contains. Remember use exact words of field name, like AADT, AADT_COUNT_YEAR.
 
 https://gis.iowadot.gov/ramsa/rest/services/lrs/MapServer
+
+![](https://github.com/jane212/RAMS_API/blob/master/layers.png)
 
 
 ## 2. Using Python to query RAMS
