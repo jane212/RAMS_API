@@ -49,4 +49,72 @@ Above is the list of layers RAMS has, and click on the layer you could access al
 
 ## 2. Using Python to query RAMS
 
-After you get familiar with RAMS and the basic functions, here you could use my programs to
+After you get familiar with RAMS and the basic functions, here you could use my programs to query the measure, routeId, and attributes in batch processing.
+
+Note that the system has a limit on how many number of records it will respond and return, thus, I've put the option in my codes to let you choose how many rows you want in one response. (0<=n<=1500)
+
+First of all, you need to convert your coordinates into measure and routeID pair. There are two programs could be used.
+
+### Program 1A.GetMeasure_without_RouteID
+
+Since RAMS is using their own rules to generate routeID (like "S001920030E" for US 30 Eastbound), you may not know the route and direction for your coordinates. Thus, you should use program 1A to arbitrarily get the measure and routeId pair. 
+
+In program 1A, we are querying all the possible measure and routeId pair for your coordinate within certain tolerance. (Modify the default tolerance (50 ft) in Main function). This program will automatically return you only one pair of measure and routeId by filtering the nearest one with highest priority (There is a priority rule for all the roads).
+
+#### Important!
+
+For any coordinate which is perfectly located on the correct side of the road, for example, INRIX segment start and end points, this program works fine. But for Wavetronix sensor, sometimes two sensors in different direction have the EXACT SAME coordinate. For example:
+
+CBDS 26 SB: 41.149317	-95.822583
+CBDS 26 NB: 41.149317	-95.822583
+
+They are physically at the same location, but you want directional info for each sensor name. Then this program cannot give you the answer you want unless you specify: the first coordinate is on Southbound and the second is on Northbound. To do that, you have to do two things:
+
+#### Check the route and direction for your coordiantes on the map.
+#### Use program 1B.
+
+But I still recommend you to use 1A first, then you could have an idea about which routeId that sensors are generally belong to. And follow the format of routeId to create your own ones.
+
+### Program 1B.GetMeasure_with_RouteID
+
+Using program 1B is easier, all you need is your coordinates and the correct routeId for them. Then the program will return you exact one accurate measure and routeId pair.
+
+#### Important!
+
+ALWAYS check your results on map! See if the routeId is consistant on one road, the measure is alway increasing along traveling direction!
+
+### Program 2A.RequestAttributes
+
+After getting correct measure and routeId pair, you can use program 2A to query attributes, like AADT, speed limit, etc. Make sure you know your layerID and fields you want from this link:
+
+https://gis.iowadot.gov/ramsa/rest/services/lrs/MapServer
+
+And modify the corresponding fields in the codes.
+
+### Program 2B.RequestReferencePost
+
+Not like general attributes, reference post needs a special way to query. This program is ONLY used for querying reference post of one location.
+
+Reference post is an approximation of mile post on the road (the little green signs on the roadside indicates the mileage). In RAMS, reference post is a point object, rather than a line object. Thus, we need to get two nearest points and linearly interpolate or extrapolate the reference posts.
+
+#### Important!
+
+Check your results on the map! Reference post is not alway increasing along traveling direction, it ONLY increases along MAIN direction (Eastbound or Northbound), then decreases along opposite direction (Westbound or Southbound). 
+
+Also, the direction here is the direction from routeID, NOT from the physical world, like the direction field from INRIX or Wavetronix meta data.
+
+There are several errors in the RAMS itself. I've tried many scenarios and handled all the exceptions I met. But if you still find your results are not reasonable, please consult Skylar.
+
+### Final Comments
+
+There are many fields you need to modify regarding your own problem. They have been highlighted in the codes. Please follow the instructions in the codes as well.
+
+If you encounter some basic programing errors, try to run the codes line by line and see the results, until you find the reason of error. Debugging is a fun job. And remember that Google is your friend!
+
+
+
+
+
+
+
+
