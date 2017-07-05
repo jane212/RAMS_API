@@ -1,6 +1,6 @@
 # RAMS API Instruction
 
-1. Introduction
+## 1. Introduction
 
 RAMS is an ArcGIS REST Service for Iowa DOT. It is a new version of GIMS system.
 
@@ -8,7 +8,7 @@ Go to the map server page, https://gis.iowadot.gov/ramsa/rest/services/lrs/MapSe
 
 Make sure you try out these functions first to get familiar with how the map server works.
 
-a. using coordinates to get measure and routeId
+### a. using coordinates to get measure and routeId
 
 https://gis.iowadot.gov/ramsa/rest/services/lrs/MapServer/exts/LRSServer/networkLayers/0/geometryToMeasure
 
@@ -26,11 +26,27 @@ Note that x is for longitude and y is for latitude. "routeId" is optional, if yo
 
 In the results, the "measure" field indicates how long your location is away from the route start, which could be considered as Mile Marker. For example, here your measure for your input location is 146.62445701775567.
 
-Important!
+#### Important!
 
+Getting measure and routeId is fundamental for using this system to get any other attributes you want. ALWAYS check your results on the map to see if your location is on the correct route and direction.
 
-b. using measure and routeId to get any attributes you want
+### b. using measure and routeId to get any attributes you want
 
 https://gis.iowadot.gov/ramsa/rest/services/lrs/MapServer/exts/LRSServer/networkLayers/0/queryAttributeSetd
 
-After getting the measure and routeId, you could use it 
+After getting the measure and routeId, you could use it to query any attributes in RAMS/GIMS. Here is an example for getting AADT.
+
+Use the above link and fill in the fields as follows:
+
+locations: [{"routeId":"S001920030E", "measure": 146.62445701775567}]
+attributeSet: [{"layerId":102, "fields":["AADT"]}]
+
+In the results, the "AADT" field has the data you want. Here we used previous location info we got from function a., the AADT value for that location is 23800.
+
+https://gis.iowadot.gov/ramsa/rest/services/lrs/MapServer
+
+Above is the list of layers RAMS has, and click on the layer you could access all the fields it contains. Remember use exact words of field name, like AADT, AADT_COUNT_YEAR.
+
+## 2. Using Python to query RAMS
+
+After you get familiar with RAMS and the basic functions, here you could use my programs to
