@@ -6,7 +6,7 @@ RAMS is an ArcGIS REST Service for Iowa DOT. It is a new version of GIMS system.
 
 Go to the map server page, https://gis.iowadot.gov/ramsa/rest/services/lrs/MapServer, check the layers we previously used in GIMS.
 
-Make sure you try out these functions first to get familiar with how the map server works.
+Make sure you try out the following functions first to get familiar with how the map server works.
 
 ### a. using coordinates to get "measure" and "routeId"
 
