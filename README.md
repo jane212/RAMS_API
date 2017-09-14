@@ -117,8 +117,6 @@ Besides, there are several errors in RAMS itself. I've tried many scenarios and 
 
 There are many fields you need to specify regarding your own problems. They have been highlighted in the codes. Please follow the instructions in the codes as well.
 
-If you encounter some basic programing errors, try to run the codes line by line and see the results, until you find the reason of error. Debugging is a fun job. And remember that Google is your friend!
-
 
 
 
