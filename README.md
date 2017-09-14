@@ -81,7 +81,7 @@ They are physically at the same location, but you want directional info for each
 #### Check the route and direction for your coordiantes on the map.
 #### Then, use program 1B.
 
-But I still recommend you to use 1A first, then you could have an idea about which routeId that sensors are generally belong to. And follow the format of routeId to create your own ones.
+But I still recommend you to use 1A first, then you could have an idea about which routeId that sensors are generally belong to. And follow the format of routeId to create your own ones. (See "RAMS Route ID Format.xlsx" and "RAMS Route Main Direction.csv")
 
 ### Program 1B.GetMeasure_with_RouteID
 
