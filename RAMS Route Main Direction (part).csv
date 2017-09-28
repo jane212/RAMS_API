@@ -1,7 +1,9 @@
 route number,dir1,dir2
 5,N,S
 6,E,W
+9,E,W
 12,N,S
+13,N,S
 18,E,W
 20,E,W
 27,N,S
@@ -12,6 +14,7 @@ route number,dir1,dir2
 35,N,S
 52,N,S
 57,E,W
+58,N,S
 60,N,S
 61,N,S
 63,N,S
@@ -19,9 +22,12 @@ route number,dir1,dir2
 74,E,W
 75,N,S
 80,E,W
+92,E,W
+100,E,W
 136,E,W
 141,E,W
 151,N,S
+160,E,W
 163,E,W
 218,N,S
 235,E,W
@@ -31,3 +37,4 @@ route number,dir1,dir2
 461,N,S
 480,E,W
 680,E,W
+965,N,S
